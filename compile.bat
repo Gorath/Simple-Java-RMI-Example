@@ -1,6 +1,6 @@
 @echo off
-echo 	======== Java batch compile for RMI Server ========
-echo 	========      (c) Gareth Jones 2011        ========
+echo 	======== Java batch compile for RMI Example ========
+echo 	========      (c) Gareth Jones 2011         ========
 
 rem Defines preferred java path 
 if defined JAVA_HOME (

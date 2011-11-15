@@ -33,17 +33,21 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerI {
 		if (msg.messageNum + 1 == totalMessages) {
 			System.out.println("Messages being totaled....");
 			
+			String s = "Lost packet numbers: ";
 			int count = 0;
 			for (int i = 0; i < totalMessages; i++) {
 				if (receivedMessages[i] != 1) {
 					count++;
+					s = s + " " + (i+1) + ", ";
 				}
 			}
+			
+			if (count == 0) s = s + "None";
 			
 			System.out.println("Total messages sent      : " + totalMessages);
 			System.out.println("Total messages received  : " + (totalMessages - count));
 			System.out.println("Total messages lost      : " + count);
-			System.out.println("Efficiency               : " + ((totalMessages - count) / totalMessages) );
+			System.out.println(s);
 			System.out.println("Test finished.");
 			System.exit(0);
 		}
